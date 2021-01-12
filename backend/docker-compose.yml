@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mqtt:
+    image: eclipse-mosquitto
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+  timescaledb:
+    image: timescale/timescaledb:latest-pg12
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=mypguser
+      - POSTGRES_PASSWORD=my_password_3g33
+    volumes:
+      - ./timescaledb:/var/lib/postgresql
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana:/var/lib/grafana

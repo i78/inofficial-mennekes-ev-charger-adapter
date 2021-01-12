@@ -1,0 +1,5 @@
+/.idea/
+/backend/mosquitto/config/certs/*
+/charger-ca/charger1*/*
+/charger-ca/mosquitto-broker/*
+/charger-ca/rootca/*
